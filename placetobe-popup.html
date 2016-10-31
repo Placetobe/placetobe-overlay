@@ -20,6 +20,8 @@ Placetobe Popup
 
       :host section {
         @apply(--placetobe-border-box);
+        @apply(--placetobe-flex-layout-vertical);
+        @apply(--placetobe-cross-align-stretch);
         @apply(--placetobe-box-shadow);
         background-color: white;
         width: calc( 100vw - (var(--placetobe-margin) * 10) );
@@ -30,6 +32,10 @@ Placetobe Popup
       }
 
       :host section .container {
+        @apply(--placetobe-flex-item--1);
+        @apply(--placetobe-cross-align-stretch);
+        @apply(--placetobe-flex-layout-vertical);
+        @apply(--placetobe-cross-align-stretch);
         padding: var(--placetobe-margin);
       }
     </style>
