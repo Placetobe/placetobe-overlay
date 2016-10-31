@@ -29,21 +29,13 @@ Placetobe Popup
         max-width: var(--placetobe-two-column-width);
         max-height: var(--placetobe-column-width);
         overflow: auto;
-      }
-
-      :host section .container {
-        @apply(--placetobe-flex-item--1);
-        @apply(--placetobe-cross-align-stretch);
-        @apply(--placetobe-flex-layout-vertical);
-        @apply(--placetobe-cross-align-stretch);
         padding: var(--placetobe-margin);
       }
+
     </style>
 
     <section>
-      <div class="container">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </section>
 
   </template>
