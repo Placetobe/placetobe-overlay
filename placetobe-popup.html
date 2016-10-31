@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-backdrop.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
+<link rel="import" href="../placetobe-styles/placetobe-styles.html">
+
+<!--
+`placetobe-popup`
+Placetobe Popup
+
+@demo demo/index.html 
+-->
+
+<dom-module id="placetobe-popup">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host section {
+        @apply(--placetobe-border-box);
+        @apply(--placetobe-box-shadow);
+        background-color: white;
+        width: calc( 100vw - (var(--placetobe-margin) * 10) );
+        height: calc( 100vh - (var(--placetobe-margin) * 10) );
+        max-width: var(--placetobe-two-column-width);
+        max-height: var(--placetobe-column-width);
+        overflow: auto;
+      }
+
+      :host section .container {
+        padding: var(--placetobe-margin);
+      }
+    </style>
+
+    <section>
+      <div class="container">
+        <slot></slot>
+      </div>
+    </section>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'placetobe-popup',
+      behaviors: [PlacetobeStylesBehavior, Polymer.IronOverlayBehavior],
+
+      properties: {
+      },
+
+    });
+  </script>
+</dom-module>
