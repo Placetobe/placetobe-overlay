@@ -25,12 +25,17 @@ Placetobe Popup
         @apply(--placetobe-cross-align-stretch);
         @apply(--placetobe-box-shadow);
         background-color: white;
-        width: calc( 100vw - (var(--placetobe-margin) * 10) );
-        height: calc( 100vh - (var(--placetobe-margin) * 10) );
+        max-height: calc( 100vh - (var(--placetobe-margin) * 2) );
+        width: calc( 100vw - (var(--placetobe-margin) * 2) );
         max-width: calc( var(--placetobe-layout-width) + ( var(--placetobe-margin) * 2 ) );
-        max-height: var(--placetobe-column-width);
         overflow: auto;
         padding: var(--placetobe-margin);
+      }
+
+      @media(min-width: 601px) {
+        :host section {
+          height: auto;
+        }
       }
 
     </style>
