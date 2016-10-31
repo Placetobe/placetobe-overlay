@@ -46,20 +46,7 @@ Placetobe Popup
     Polymer({
 
       is: 'placetobe-popup',
-      behaviors: [PlacetobeStylesBehavior, Polymer.IronOverlayBehavior],
-
-      properties: {
-        active: {
-          type: Boolean,
-          value: false,
-          observer: '_handleOpenChanged'
-        }
-      },
-
-      _handleOpenChanged: function(active) {
-        if(this.active) this.open();
-        else this.close();
-      }
+      behaviors: [PlacetobeStylesBehavior, Polymer.IronOverlayBehavior]
 
     });
   </script>
