@@ -1,7 +1,4 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
-<link rel="import" href="../iron-overlay-behavior/iron-overlay-backdrop.html">
-<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
 
 <!--
@@ -20,30 +17,84 @@ Placetobe Popup
 
       :host section {
         @apply(--placetobe-border-box);
-        @apply(--placetobe-border-radius);
         @apply(--placetobe-flex-layout-vertical);
         @apply(--placetobe-cross-align-stretch);
-        @apply(--placetobe-box-shadow);
         background-color: white;
-        max-height: calc( 100vh - (var(--placetobe-margin) * 6) );
-        width: calc( 100vw - (var(--placetobe-margin) * 2) );
-        max-width: calc( var(--placetobe-layout-width) + ( var(--placetobe-margin) * 2 ) );
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         padding: var(--placetobe-margin);
       }
 
+      :host section svg {
+        position: absolute;
+        width: calc(var(--placetobe-margin) * 2);
+        height: calc(var(--placetobe-margin) * 2);
+        top: calc( var(--placetobe-margin) / 3 * 2);
+        right: calc( var(--placetobe-margin) / 2 );
+        cursor: pointer;
+      }
+
+      :host section svg g {
+        stroke: var(--placetobe-color-darkblue);
+      }
+
+      :host #container {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0, .4);
+        @apply --placetobe-flex-layout;
+        @apply --placetobe-flex-align--center;
+        @apply --placetobe-cross-align--center;
+      }
+
+      :host #container[hidden] {
+        display: none;
+      }
+
       @media(min-width: 601px) {
         :host section {
+          @apply --placetobe-flex-item--1;
+          @apply(--placetobe-box-shadow);
+          @apply(--placetobe-border-radius);
           height: auto;
+          width: calc( 100vw - (var(--placetobe-margin) * 2) );
+          max-width: calc( var(--placetobe-layout-width) + (var(--placetobe-margin) * 2) );
+          top: auto;
+          bottom: auto;
+          left: auto;
+          right: auto;
+          position: relative;
         }
       }
 
     </style>
 
-    <section>
-      <slot></slot>
-    </section>
+    <div
+      id="container"
+      on-tap="_handleTapContainer"
+      hidden$="[[!opened]]">
+      <section>
+        <slot></slot>
+          <svg viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" on-tap="close">
+            <g>
+              <path d="M35.6509863,35.6509863 L18,18" stroke-width="2" stroke-linecap="square"></path>
+              <path d="M35.6509863,35.6509863 L18,18" stroke-width="2" stroke-linecap="square" transform="translate(26.825493, 26.825493) scale(-1, 1) translate(-26.825493, -26.825493) "></path>
+            </g>
+          </svg>
+      </section>
+
+
+
+    </div>
 
   </template>
 
@@ -51,7 +102,24 @@ Placetobe Popup
     Polymer({
 
       is: 'placetobe-popup',
-      behaviors: [PlacetobeStylesBehavior, Polymer.IronOverlayBehavior]
+
+      properties: {
+        opened: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        }
+      },
+
+      _handleTapContainer: function(evt) {
+        if(evt.target.isEqualNode(this.$.container)) {
+          this.close();
+        }
+      },
+
+      close: function() {
+        this.opened = false;        
+      }
 
     });
   </script>

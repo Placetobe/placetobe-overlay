@@ -10,22 +10,16 @@
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
     <link rel="import" href="../placetobe-popup.html">
+    <link rel="import" href="../../placetobe-survey/placetobe-entrepreneur-quickscan.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
     </style>
   </head>
   <body>
 
-    <div class="vertical-section-container centered">
-      <h3>Basic placetobe-popup Demo</h3>
-      <demo-snippet>
-        <template>
-          <placetobe-popup with-backdrop opened>
-            <span>This is a test</span>
-          </placetobe-popup>
-        </template>
-      </demo-snippet>
-    </div>
+    <placetobe-popup opened>
+      <placetobe-entrepreneur-quickscan></placetobe-entrepreneur-quickscan>
+    </placetobe-popup>
 
   </body>
 </html>
