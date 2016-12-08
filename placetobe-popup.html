@@ -109,13 +109,22 @@ Placetobe Popup
           type: Boolean,
           value: false,
           reflectToAttribute: true,
-          notify: true
+          notify: true,
+          observer: '_handleOpenedChanged'
         }
       },
 
       _handleTapContainer: function(evt) {
         if(evt.target.isEqualNode(this.$.container)) {
           this.close();
+        }
+      },
+
+      _handleOpenedChanged: function(opened) {
+        if(opened) {
+          this.fire('popup-opened')
+        } else {
+          this.fire('popup-closed')
         }
       },
 
