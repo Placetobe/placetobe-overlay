@@ -123,6 +123,7 @@ Placetobe Popup
       _handleOpenedChanged: function(newValue, oldValue) {
         if(newValue === true && oldValue === false) {
           this.fire('popup-opened')
+        }
         if(newValue === false && oldValue === true) {
           this.fire('popup-closed')
         }
