@@ -126,10 +126,11 @@ Placetobe Popup
         }
       },
 
-      _handleOpenedChanged: function(opened) {
-        if(opened) {
+      _handleOpenedChanged: function(newValue, oldValue) {
+        if(newValue === true && oldValue === false) {
           this.fire('popup-opened')
-        } else {
+        }
+        if(newValue === false && oldValue === true) {
           this.fire('popup-closed')
         }
       },
