@@ -66,6 +66,7 @@ Placetobe Popup
           @apply --placetobe-flex-item--1;
           @apply(--placetobe-box-shadow);
           @apply(--placetobe-border-radius);
+          -ms-flex: 1 0 auto;
           height: auto;
           width: calc( 100vw - (var(--placetobe-margin) * 2) );
           max-width: calc( var(--placetobe-layout-width) + (var(--placetobe-margin) * 2) );
@@ -75,6 +76,11 @@ Placetobe Popup
           right: auto;
           position: relative;
         }
+
+        :host section ::slotted(* > :first-child) {
+          min-height: calc( var(--placetobe-margin) * 25 );
+        }
+
       }
 
     </style>
