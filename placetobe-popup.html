@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
 
 <!--
@@ -28,8 +29,8 @@ Placetobe Popup
         left: 0;
         right: 0;
         overflow: auto;
-        -webkit-overflow-scrolling: touch;
         padding: var(--placetobe-margin);
+        -webkit-overflow-scrolling: touch;
       }
 
       :host section svg {
@@ -109,6 +110,7 @@ Placetobe Popup
     Polymer({
 
       is: 'placetobe-popup',
+      behaviors: [PlacetobeStylesBehavior],
 
       properties: {
         opened: {
