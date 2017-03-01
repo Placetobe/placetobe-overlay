@@ -122,9 +122,11 @@ Placetobe Popup
 
       _handleOpenedChanged: function(newValue, oldValue) {
         if(newValue === true && oldValue === false) {
+          document.body.style.overflow = 'hidden';
           this.fire('popup-opened')
         }
         if(newValue === false && oldValue === true) {
+          document.body.style.overflow = 'visible';
           this.fire('popup-closed')
         }
       },
