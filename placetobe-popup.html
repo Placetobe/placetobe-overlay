@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
 
 <!--
@@ -29,7 +30,6 @@ Placetobe Popup
         right: 0;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
-        padding: var(--placetobe-margin);
       }
 
       :host section svg {
@@ -66,6 +66,7 @@ Placetobe Popup
           @apply --placetobe-flex-item--1;
           @apply(--placetobe-box-shadow);
           @apply(--placetobe-border-radius);
+          -ms-flex: 1 0 auto;
           height: auto;
           width: calc( 100vw - (var(--placetobe-margin) * 2) );
           max-width: calc( var(--placetobe-layout-width) + (var(--placetobe-margin) * 2) );
@@ -75,6 +76,11 @@ Placetobe Popup
           right: auto;
           position: relative;
         }
+
+        :host section ::slotted(* > :first-child) {
+          min-height: calc( var(--placetobe-margin) * 25 );
+        }
+
       }
 
     </style>
@@ -103,6 +109,7 @@ Placetobe Popup
     Polymer({
 
       is: 'placetobe-popup',
+      behaviors: [PlacetobeStylesBehavior],
 
       properties: {
         opened: {

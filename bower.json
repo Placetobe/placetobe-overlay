@@ -12,7 +12,8 @@
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "placetobe-survey": "Placetobe/placetobe-survey"
+    "placetobe-survey": "Placetobe/placetobe-survey",
+    "placetobe-invest-page": "Placetobe/placetobe-invest-page"
   },
   "version": "1.0.0",
   "homepage": "https://github.com/Placetobe/placetobe-popup"
