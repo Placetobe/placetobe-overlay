@@ -58,7 +58,7 @@ Placetobe Popup
       }
 
       :host #container[hidden] {
-        display: none;
+        display: none !important;
       }
 
       @media(min-width: 601px) {
@@ -136,11 +136,11 @@ Placetobe Popup
           this.fire('popup-opened')
         }
         if(newValue === false && oldValue === true) {
-          document.documentElement.style.overflow = '';
+          document.documentElement.style.overflow = 'visible';
           document.documentElement.style.height = '';
-          document.body.style.overflow = '';
+          document.body.style.overflow = 'visible';
           document.body.style.height = '';
-          this.fire('popup-closed')
+          this.fire('popup-opened')
         }
       },
 
