@@ -118,12 +118,17 @@ Placetobe Popup
           reflectToAttribute: true,
           notify: true,
           observer: '_handleOpenedChanged'
+        },
+
+        modal: {
+          type: Boolean,
+          value: false
         }
       },
 
       _handleTapContainer: function(evt) {
         if(evt.target.isEqualNode(this.$.container)) {
-          this.close();
+          if(!this.modal) this.close();
         }
       },
 
