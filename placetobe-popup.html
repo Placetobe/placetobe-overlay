@@ -122,6 +122,14 @@ Placetobe Popup
         }
       },
 
+      close: function() {
+        this.set('opened', false);
+      },
+
+      open: function() {
+        this.set('opened', true);
+      },
+
       _handleTapContainer: function(evt) {
         if(evt.target.isEqualNode(this.$.container)) {
           this.close();
@@ -143,10 +151,6 @@ Placetobe Popup
           document.body.style.height = '';
           this.fire('popup-opened')
         }
-      },
-
-      close: function() {
-        this.opened = false;        
       }
 
     });
